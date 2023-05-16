@@ -3,10 +3,8 @@ from PIL import Image
 import pandas
 import search
 
-st.title("Michael Coulson's 'TYS' dictionary")
-st.header("Sanskrit-English")
+st.header("Coulson's: Sanskrit-English")
 
-# todo generate csv file from filenames
 rgs = pandas.read_csv(filepath_or_buffer="dic-ranges.csv", sep="-")
 
 st.text_input(label="Enter a Sanskrit work (IAST):", key="word_iast")
@@ -23,7 +21,7 @@ for index, row in rgs.iterrows():  # todo improve algorithm
         # show the corresponding image
         image_name = f"{search.get_index_as_string(row['index'])}-{row['from']}-{row['to']}-{row['page']}.png"
         image = Image.open(f"dic/{image_name}")
-        result_container.image(image)
+        result_container.image(image, caption="Page containing the word")
         break
 
 # show placeholder if not found

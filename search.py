@@ -1,11 +1,11 @@
-alphabet = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ai', 'o', 'au', 'ṃ', 'ḥ', 'k', 'kh',
+ALPHABET = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ai', 'o', 'au', 'ṃ', 'ḥ', 'k', 'kh',
             'g', 'gh', 'ṅ', 'c', 'ch', 'j', 'jh', 'ñ', 'ṭ', 'ṭh', 'ḍ', 'ḍh', 'ṇ', 't', 'th', 'd', 'dh', 'n', 'p', 'ph',
             'b', 'bh', 'm', 'y', 'r', 'l', 'v', 'ś', 'ṣ', 's', 'h']
 
 
 def index_of(letter):
     try:
-        index_of_letter = alphabet.index(letter)
+        index_of_letter = ALPHABET.index(letter)
     except ValueError:
         index_of_letter = 9999
     return index_of_letter
@@ -58,8 +58,12 @@ def less_than_or_equal(word1, word2):
 
 
 def is_in_range(string, lower_bound, upper_bound):
-    in_range = less_than_or_equal(lower_bound, string) and less_than_or_equal(string, upper_bound)
-    return string != "" and in_range
+    if string == "":
+        return False
+
+    word = string.lower()
+    in_range = less_than_or_equal(lower_bound, word) and less_than_or_equal(word, upper_bound)
+    return in_range
 
 
 def get_index_as_string(i):
@@ -71,25 +75,3 @@ def get_index_as_string(i):
     else:
         string = f"{i}"
     return string
-
-#
-# # TODO REMOVE
-#
-# print("Ola!")
-#
-# val1 = "aṅgul"
-# value = "bñcalaḥ"
-# val2 = "aticira"
-#
-# res = is_in_range(value, val1, val2)
-# print(res)
-#
-# # res = less_than_or_equal(val1, value)
-# # print(res)
-#
-# # res = less_than_or_equal(value, val2)
-# # print(res)
-#
-#
-# # v = separate_in_letters("aubhijhñaḍhai")
-# # print(v)
