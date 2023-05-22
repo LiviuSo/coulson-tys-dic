@@ -23,10 +23,10 @@ for index, row in rgs.iterrows():  # todo improve algorithm
         col1, empty, col2 = st.columns([2, 0.5, 2])
         with col1:
             image = Image.open(f"dic/{image_name_root}-A.png")
-            st.image(image, caption=f"Range: {row['from']} - {row['to']}")
+            st.image(image)
         with col2:
             image = Image.open(f"dic/{image_name_root}-B.png")
-            st.image(image)
+            st.image(image, caption=f"Range: {row['from']} - {row['to']}")
         break
 
 # show placeholder if not found
