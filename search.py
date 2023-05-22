@@ -54,7 +54,11 @@ def less_than_or_equal(word1, word2):
             return True
         il = il + 1
 
-    return True
+    # the part of common length is equal
+    if len1 <= len2:
+        return True
+    elif len1 > len2:
+        return False
 
 
 def is_in_range(string, lower_bound, upper_bound):
